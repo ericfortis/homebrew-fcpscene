@@ -17,3 +17,12 @@ https://github.com/ericfortis/final-cut-pro-scene-detect/releases/new
 ./update_formula v1.0.0
 ```
 
+
+## 3. Update locally
+```shell
+brew update
+brew upgrade fcpscene
+
+brew info fcpscene
+fcpscene -v
+```
