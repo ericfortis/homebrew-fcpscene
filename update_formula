@@ -1,10 +1,31 @@
+#!/bin/sh
+
+set -e
+
+tag="$1"
+if [ -z "$tag" ]; then
+  echo "Usage: $0 v1.0.0"
+  exit 1
+fi
+
+name="fcpscene-${tag}.tar.gz"
+url="https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/${tag}.tar.gz"
+
+echo "Downloading tarball…"
+curl -sSL -o "$name" "$url"
+
+echo "Calculating SHA256…"
+sha=$(shasum -a 256 "$name" | awk '{print $1}')
+
+echo "Updating Formula/fcpscene.rb…"
+cat > ./Formula/fcpscene.rb << EOF
 class Fcpscene < Formula
   include Language::Python::Virtualenv
 
   desc "Final Cut Pro scene cut detector"
   homepage "https://github.com/ericfortis/final-cut-pro-scene-detect"
-  url "https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "4d3baccea0c6e28e5bb4bc3fdcf876e40b7a55c12ba84b0e375a09b3933cf0d0"
+  url "$url"
+  sha256 "$sha"
   license "MIT"
 
   depends_on "python@3.11"
@@ -21,3 +42,6 @@ class Fcpscene < Formula
     assert_predicate bin/"fcpscene-gui", :exist?
   end
 end
+EOF
+
+echo "Formula updated for $tag"
