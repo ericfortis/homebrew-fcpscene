@@ -28,7 +28,7 @@ class Fcpscene < Formula
   sha256 "$sha"
   license "MIT"
 
-  depends_on "python@3.11"
+  depends_on "python@3.13"
   depends_on "ffmpeg"
 
   def install

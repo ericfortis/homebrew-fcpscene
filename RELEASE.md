@@ -26,3 +26,23 @@ brew upgrade fcpscene
 brew info fcpscene
 fcpscene -v
 ```
+
+
+---
+
+### Local testing
+
+```sh
+cd ~/work
+tar -czvf final-cut-pro-scene-detect-1.0.0.tar.gz final-cut-pro-scene-detect/
+
+shasum -a 256 ~/work/final-cut-pro-scene-detect-1.0.0.tar.gz
+
+# Edit the formula with: 
+#   url "file://<path-here>.tar.gz"
+#   sha256 "<hash-here>"
+#   version "1.0.0"
+
+brew uninstall fcpscene
+brew install --debug ~/work/homebrew-fcpscene/Formula/fcpscene.rb
+```
