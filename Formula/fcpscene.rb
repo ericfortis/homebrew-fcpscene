@@ -3,8 +3,8 @@ class Fcpscene < Formula
 
   desc "Final Cut Pro scene cut detector"
   homepage "https://github.com/ericfortis/final-cut-pro-scene-detect"
-  url "https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/v1.0.9.tar.gz"
-  sha256 "8c2c1ee2f8d38e1df104d3a4bb5cf96d48c8afab39229de49e81dc5c185f58cd"
+  url "https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "63ab8d22da802d0f699d41c3c76902c4d980d064464d70152105815634ff1a0e"
   license "MIT"
 
   depends_on "python@3.13"
