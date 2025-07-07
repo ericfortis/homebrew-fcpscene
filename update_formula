@@ -33,13 +33,10 @@ class Fcpscene < Formula
 
   def install
     virtualenv_install_with_resources
-    bin.install_symlink libexec/"bin/fcpscene" => "fcpscene"
-    bin.install "bin/fcpscene-gui"
   end
 
   test do
     system "#{bin}/fcpscene", "--help"
-    assert_predicate bin/"fcpscene-gui", :exist?
   end
 end
 EOF
