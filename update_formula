@@ -29,10 +29,12 @@ class Fcpscene < Formula
   license "MIT"
 
   depends_on "python@3.13"
+  depends_on "python-tk@3.13"
   depends_on "ffmpeg"
 
   def install
     virtualenv_install_with_resources
+    system "make", "install"
   end
 
   test do
