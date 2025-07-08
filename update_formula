@@ -17,30 +17,6 @@ curl -sSL -o "$name" "$url"
 echo "Calculating SHA256…"
 sha=$(shasum -a 256 "$name" | awk '{print $1}')
 
-echo "Updating Formula/fcpscene.rb…"
-cat > ./Formula/fcpscene.rb << EOF
-class Fcpscene < Formula
-  include Language::Python::Virtualenv
 
-  desc "Final Cut Pro scene cut detector"
-  homepage "https://github.com/ericfortis/final-cut-pro-scene-detect"
-  url "$url"
-  sha256 "$sha"
-  license "MIT"
-
-  depends_on "python@3.13"
-  depends_on "python-tk@3.13"
-  depends_on "ffmpeg"
-
-  def install
-    virtualenv_install_with_resources
-    system "make", "install"
-  end
-
-  test do
-    system "#{bin}/fcpscene", "--help"
-  end
-end
-EOF
-
-echo "Formula updated for $tag"
+echo "$url"
+echo "$sha"

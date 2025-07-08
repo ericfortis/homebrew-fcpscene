@@ -3,8 +3,8 @@ class Fcpscene < Formula
 
   desc "Final Cut Pro scene cut detector"
   homepage "https://github.com/ericfortis/final-cut-pro-scene-detect"
-  url "https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "2b2fb8664978f75132cd55948bd27f1268b4d4ca4038900c4175881ed1cd3429"
+  url "https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "476c338fe3ac95dafd621d0f8df87a6cae079a65fe32c8df3ef9b185eb442b96"
   license "MIT"
 
   depends_on "python@3.13"
@@ -13,10 +13,22 @@ class Fcpscene < Formula
 
   def install
     virtualenv_install_with_resources
-    system "make", "install"
+		system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do
     system "#{bin}/fcpscene", "--help"
   end
+
+	def caveats
+		<<~EOS
+			fcpscene.app was saved to:
+				#{opt_prefix}/fcpscene.app
+
+			You can move it to your Applications folder.
+
+			Otherwise, you can still use the CLI tool via:
+				fcpscene --gui
+		EOS
+	end
 end
