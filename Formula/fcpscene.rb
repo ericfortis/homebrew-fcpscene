@@ -3,8 +3,8 @@ class Fcpscene < Formula
 
   desc "Final Cut Pro scene cut detector"
   homepage "https://github.com/ericfortis/final-cut-pro-scene-detect"
-  url "https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "476c338fe3ac95dafd621d0f8df87a6cae079a65fe32c8df3ef9b185eb442b96"
+  url "https://github.com/ericfortis/final-cut-pro-scene-detect/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "d66c9136b139e0d2da8864870380411f211a9777e0710cb36f19be256a24bb90"
   license "MIT"
 
   depends_on "python@3.13"
@@ -25,9 +25,13 @@ class Fcpscene < Formula
 			fcpscene.app was saved to:
 				#{opt_prefix}/fcpscene.app
 
-			You can move it to your Applications folder.
+			Don’t use the `mv` command to install it.
 
-			Otherwise, you can still use the CLI tool via:
+			In Finder, Go -> Go to Folder, and type:
+				#{opt_prefix}
+			Then drag fcpscene.app to your Applications folder.
+
+			Otherwise, you can still launch it from the terminal:
 				fcpscene --gui
 		EOS
 	end
