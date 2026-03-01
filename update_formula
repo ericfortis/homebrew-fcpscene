@@ -20,3 +20,5 @@ sha=$(shasum -a 256 "$name" | awk '{print $1}')
 
 echo "$url"
 echo "$sha"
+
+echo "You must manually edit fcpscene.rb with those values"
