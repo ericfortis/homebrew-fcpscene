@@ -13,6 +13,9 @@ https://github.com/ericfortis/final-cut-pro-scene-detect/releases/new
 
 
 ## 2. Update Formula with new hash and tarball url
+
+Pass the latest version and manually edit fcpscene.rb with the hash and version.
+
 ```sh
 ./update_formula v1.0.0
 ```
